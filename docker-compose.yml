@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:15
+    container_name: pricing_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: zoommer_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: pricing_app
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/zoommer_db
+      PYTHONPATH: /app
+    command: python src/main.py
+
+  dashboard:
+    build: .
+    container_name: pricing_dashboard
+    ports:
+      - "8501:8501"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/zoommer_db
+      PYTHONPATH: /app
+    command: streamlit run src/dashboard.py --server.port=8501 --server.address=0.0.0.0
+
+volumes:
+  postgres_data:
