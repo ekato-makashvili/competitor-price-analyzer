@@ -2,12 +2,16 @@ import psycopg2
 import os
 
 def get_connection():
-    # Database connection parameters from environment variables
+    """
+    Establish a secure connection to the PostgreSQL database.
+    Configuration is pulled directly from environment variables 
+    to ensure security and prevent sensitive data leakage.
+    """
     return psycopg2.connect(
-        host="db",
-        database="zoommer_db",
-        user="user",
-        password="password"
+        host=os.getenv("DB_HOST"),
+        database=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD")
     )
 
 def init_db():
