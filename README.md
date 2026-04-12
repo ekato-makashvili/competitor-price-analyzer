@@ -9,8 +9,8 @@ Python (Playwright, SQLAlchemy), PostgreSQL, Streamlit, Docker.
 
 1. **Clone & Navigate:**
    ```bash
-   git clone [https://github.com/your-username/competitor-priceanalyzer.git](https://github.com/your-username/competitor-priceanalyzer.git)
-   cd competitor-priceanalyzer
+   git clone [https://github.com/ekato-makashvili/competitor-price-analyzer.git](https://github.com/ekato-makashvili/competitor-price-analyzer.git)
+   cd competitor-price-analyzer
 Configure Variables:
 Create a .env file in the root directory:
 
