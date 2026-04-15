@@ -1,6 +1,6 @@
 # 📊 Competitor Price Analyzer
 
-Automated web scraper (Zoommer.ge) and Streamlit dashboard for price tracking.
+Automated web scraper and Streamlit dashboard for price tracking.
 
 ## 🛠 Tech Stack
 Python (Playwright, SQLAlchemy), PostgreSQL, Streamlit, Docker.
@@ -11,29 +11,15 @@ Python (Playwright, SQLAlchemy), PostgreSQL, Streamlit, Docker.
    ```bash
    git clone https://github.com/ekato-makashvili/competitor-price-analyzer.git
    cd competitor-price-analyzer
-Configure Variables:
-Create a .env file in the root directory:
-
-Code snippet
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_NAME=price_analyzer
-DB_HOST=db
-DB_PORT=5432
-Launch with Docker:
-
-Bash
+   
+2. **Configure Variables:**
+   ```bash
+   cp .env.example .env
+   
+3. **Launch with Docker:**
+   ```bash
 docker-compose up --build
-🔗 Access
+
+4. **🔗 Access**
 Dashboard: http://localhost:8501
-
 Database: localhost:5432
-
-🧹 Data Cleanup (SQL)
-To remove duplicates:
-
-SQL
-DELETE FROM prices a USING prices b 
-WHERE a.id < b.id AND a.product_name = b.product_name 
-AND a.price = b.price AND a.store_name = b.store_name;
-Developed for price monitoring and analysis.
