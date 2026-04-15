@@ -18,7 +18,7 @@ Python (Playwright, SQLAlchemy), PostgreSQL, Streamlit, Docker.
    
 3. **Launch with Docker:**
    ```bash
-docker-compose up --build
+   docker-compose up --build
 
 4. **🔗 Access**
 Dashboard: http://localhost:8501
