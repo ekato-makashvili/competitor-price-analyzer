@@ -15,7 +15,8 @@ Python (Playwright, SQLAlchemy), PostgreSQL, Streamlit, Docker.
 2. **Configure Variables:**
    ```bash
    cp .env.example .env
-   
+Note: Open the .env file and set your actual password in DB_PASSWORD.
+
 3. **Launch with Docker:**
    ```bash
    docker-compose up --build
